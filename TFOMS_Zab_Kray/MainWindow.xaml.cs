@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TFOMS_Zab_Kray.Classes;
 
 namespace TFOMS_Zab_Kray
 {
@@ -23,6 +24,8 @@ namespace TFOMS_Zab_Kray
         public MainWindow()
         {
             InitializeComponent();
+            Building b = new Building("Бутина", 21);
+            MessageBox.Show(b.Name);
         }
     }
 }

@@ -1,69 +1,53 @@
-﻿using TFOMS_Zab_Kray.Interfaces;
-using System.Data.Common;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFOMS_Zab_Kray.Classes
 {
     /// <summary>
     /// Класс кабинетов ТФОМС
     /// </summary>
-    public class Cabinet : BaseObject, IIdentified
+    [Table("CABINETS")]
+    public class Cabinet : BaseObject
     {
+        #region Fields
         /// <summary>
         /// Идентификатор кабинета
         /// </summary>
-        public override int Id { get; set; }
+        public override int Id { get; }
 
-        /// <summary>
-        /// Название кабинета
-        /// </summary>
-        public override string Name { get; set; }
-
-        /// <summary>
-        /// Внутренняя переменная для номера кабинета 
-        /// </summary>
-        private byte _number;
         /// <summary>
         /// Номер кабинета
         /// </summary>
-        public byte Number { get; set; }
+        [Column("Number")]
+        [Required]
+        [MaxLength(4)]
+        public override string Name { get; set; }
 
+        /// <summary>
+        /// Отдел, работающий в кабинете
+        /// </summary>
+        [ForeignKey("Otdel_id")]
+        public Department Department { get; set; }
+
+        #endregion Fields
+
+        #region Constructors
         /// <summary>
         /// Базовый конструктор
         /// </summary>
-        public Cabinet() { }
+        private Cabinet() { }
 
         /// <summary>
-        /// Контструктор содержащий название кабинета. Идентификатор кабинета будет получен автоматически
+        /// Конструктор содержащий номер кабинета. Идентификатор кабинета будет получен автоматически
         /// </summary>
-        /// <param name="name">Название кабинета</param>
         /// <param name="number">Номер кабинета</param>
-        public Cabinet(string name, byte number)
+        public Cabinet(byte number)
         {
-            Id = GetID();
-            Name = name;
-            Number = number;
+            Name = number.ToString();
         }
+        #endregion Constructors
 
-        /// <summary>
-        /// Полный конструктор класса. Использовать рекомендуется только в тестовых целях, так как автоматическое получение идентификатора надежнее
-        /// </summary>
-        /// <param name="id">Внутренний идентификатор кабинета</param>
-        /// <param name="name">Название кабинета</param>
-        /// <param name="number">Номер кабинета</param>
-        public Cabinet(byte id, string name, byte number)
-        {
-            Id = id;
-            Name = name;
-            Number = number;
-        }
-
-        public int GetID()
-        {
-            using (Oracle.ManagedDataAccess.Client.OracleConnection s = new Oracle.ManagedDataAccess.Client.OracleConnection())
-            {
-
-            }
-            return 0;
-        }
+        #region Methods
+        #endregion Methods
     }
 }
