@@ -12,5 +12,6 @@ namespace TFOMS_Zab_Kray.Classes.Context
         public DbSet<Department> Departments { get; set; }
         public DbSet<Cabinet> Cabinets { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Position> Positions { get; set; }
     }
 }

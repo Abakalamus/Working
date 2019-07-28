@@ -28,6 +28,11 @@ namespace TFOMS_Zab_Kray
             InitializeComponent();
             using (TFOMSContext con = new TFOMSContext())
             {
+                Position nach = new Position() { Value = "Начальник отдела" };
+                Position zam = new Position() { Value = "Заместитель начальника отдела" };
+                con.Positions.Add(nach);
+                con.Positions.Add(zam);
+                con.SaveChanges();
                 var cabinets = con.Cabinets.Include(c => c.Department).Where(c=> c.Value==1).ToList();
             }
         }
