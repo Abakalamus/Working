@@ -3,7 +3,7 @@
     /// <summary>
     ///Базовый абстрактный класс объектов фонда  
     /// </summary>
-    public abstract class BaseObject
+    public abstract class BaseObject<T>
     {
         #region Fields
         /// <summary>
@@ -13,7 +13,7 @@
         /// <summary>
         /// Семантическое (человекопонятное) наименование сущности объекта (имя, номер и т.д.)
         /// </summary>
-        public abstract string Name { get; set; }
+        public abstract T Value { get; set; }
         #endregion Fields
 
         //public abstract int GetID();

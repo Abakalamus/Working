@@ -85,6 +85,7 @@
     <Compile Include="Classes\Cabinet.cs" />
     <Compile Include="Classes\Contexts\CabinetContext.cs" />
     <Compile Include="Classes\Department.cs" />
+    <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Floor.cs" />
     <Compile Include="Interfaces\IIdentified.cs" />
     <Compile Include="MainWindow.xaml.cs">

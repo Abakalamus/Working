@@ -7,7 +7,7 @@ namespace TFOMS_Zab_Kray.Classes
     /// Класс зданий ТФОМС
     /// </summary>
     [Table("BUILDINGS")]
-    class Building : BaseObject
+    public class Building : BaseObject<string>
     {
         #region Fields
         /// <summary>
@@ -18,20 +18,26 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Комплексное название здания, состоящее из улицы и номера дома
         /// </summary>
-        [NotMapped]
-        public override string Name { get { return $"улица {Street}, дом {Number.ToString()}"; } set { } }
-        /// <summary>
-        /// Название улицы
-        /// </summary>
+        [Column("Address")]
         [MaxLength(80)]
         [Required]
-        public string Street;
+        public override string Value { get; set; }
+        #region Deleted
+        /*
+         /// <summary>
+         /// Название улицы
+         /// </summary>
+         [StringLength(60)]
+         [NotMapped]
+         private string Street;
 
-        /// <summary>
-        /// Номер дома
-        /// </summary>
-        [Required]
-        public byte Number;
+         /// <summary>
+         /// Номер дома
+         /// </summary>
+         [NotMapped]
+         private byte Number;
+         */
+        #endregion Deleted
         #endregion Fields
 
         #region Constructors
@@ -47,8 +53,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <param name="number">Номер дома</param>
         public Building(string street, byte number)
         {
-            Street = street;
-            Number = number;
+            Value = $"улица {street}, дом {number.ToString()}";
         }
         #endregion Constructors
     }

@@ -7,12 +7,13 @@ namespace TFOMS_Zab_Kray.Classes
     /// Класс кабинетов ТФОМС
     /// </summary>
     [Table("CABINETS")]
-    public class Cabinet : BaseObject
+    public class Cabinet : BaseObject<byte>
     {
         #region Fields
         /// <summary>
         /// Идентификатор кабинета
         /// </summary>
+        [Key]
         public override int Id { get; }
 
         /// <summary>
@@ -20,14 +21,23 @@ namespace TFOMS_Zab_Kray.Classes
         /// </summary>
         [Column("Number")]
         [Required]
-        [MaxLength(4)]
-        public override string Name { get; set; }
+        public override byte Value { get; set; }
 
         /// <summary>
         /// Отдел, работающий в кабинете
         /// </summary>
         [ForeignKey("Otdel_id")]
         public Department Department { get; set; }
+
+        /// <summary>
+        /// Идентификатор здания, где расположен кабинет
+        /// </summary>
+        public Building BuildingID { get; set; }
+
+        /// <summary>
+        /// Идентификатор этажа, где расположен кабинет
+        /// </summary>
+        public Floor FloorID { get; set; }
 
         #endregion Fields
 
@@ -40,10 +50,14 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Конструктор содержащий номер кабинета. Идентификатор кабинета будет получен автоматически
         /// </summary>
-        /// <param name="number">Номер кабинета</param>
-        public Cabinet(byte number)
+        /// <param name="number">Номер</param>
+        /// <param name="building">Здание</param>
+        /// <param name="floor">Этаж</param>
+        public Cabinet(byte number, Building building, Floor floor)
         {
-            Name = number.ToString();
+            Value = number;
+            BuildingID = building;
+            FloorID = floor;
         }
         #endregion Constructors
 

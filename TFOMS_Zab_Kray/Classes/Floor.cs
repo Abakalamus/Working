@@ -7,7 +7,7 @@ namespace TFOMS_Zab_Kray.Classes
     /// Класс этажей здания
     /// </summary>
     [Table("FLOORS")]
-    class Floor : BaseObject
+    public class Floor : BaseObject<string>
     {
         #region Fields
         /// <summary>
@@ -20,7 +20,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// </summary>
         [Column("Description")]
         [MaxLength(20)]
-        public override string Name { get; set; }
+        public override string Value { get; set; }
         #endregion Fields
 
         #region Constructors
@@ -35,7 +35,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <param name="description"></param>
         public Floor(string description)
         {
-            Name = description;
+            Value = description;
         }
         #endregion Constructors
     }

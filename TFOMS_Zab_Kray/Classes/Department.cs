@@ -7,7 +7,7 @@ namespace TFOMS_Zab_Kray.Classes
     /// Класс отделов ТФОМС
     /// </summary>
     [Table("OTDELS")]
-    public class Department : BaseObject
+    public class Department : BaseObject<string>
     {
         #region Fields
         /// <summary>
@@ -17,9 +17,10 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Название отдела
         /// </summary>
+        [Column("Title")]
         [MaxLength(80)]
         [Required]
-        public override string Name { get; set; }
+        public override string Value { get; set; }
         #endregion Fields
 
         #region Constructors
@@ -34,7 +35,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <param name="name">Название отдела</param>
         public Department(string name)
         {
-            Name = name;
+            Value = name;
         }
         #endregion Constructors
     }
