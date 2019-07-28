@@ -28,6 +28,12 @@ namespace TFOMS_Zab_Kray.Classes
         /// </summary>       
         public Department Department { get; set; }
 
+        public int PositionId { get; set; }
+        /// <summary>
+        /// Дожность, занимаемая сотрудником
+        /// </summary>       
+        public Position Position { get; set; }
+
         /// <summary>
         /// Рабочий телефон сотрудника
         /// </summary>
