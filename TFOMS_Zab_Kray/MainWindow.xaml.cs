@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TFOMS_Zab_Kray.Classes;
+using TFOMS_Zab_Kray.Classes.Context;
 
 namespace TFOMS_Zab_Kray
 {
@@ -24,8 +26,10 @@ namespace TFOMS_Zab_Kray
         public MainWindow()
         {
             InitializeComponent();
-            Building b = new Building("Бутина", 21);
-            MessageBox.Show(b.Name);
+            using (TFOMSContext con = new TFOMSContext())
+            {
+                var cabinets = con.Cabinets.Include(c => c.Department).Where(c=> c.Value==1).ToList();
+            }
         }
     }
 }

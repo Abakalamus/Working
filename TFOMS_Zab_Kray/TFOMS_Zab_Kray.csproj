@@ -83,7 +83,7 @@
     <Compile Include="Classes\BaseObject.cs" />
     <Compile Include="Classes\Building.cs" />
     <Compile Include="Classes\Cabinet.cs" />
-    <Compile Include="Classes\Contexts\CabinetContext.cs" />
+    <Compile Include="Classes\Context\TFOMSContext.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Floor.cs" />

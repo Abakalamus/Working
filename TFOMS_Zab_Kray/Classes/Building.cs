@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFOMS_Zab_Kray.Classes
@@ -22,6 +23,8 @@ namespace TFOMS_Zab_Kray.Classes
         [MaxLength(80)]
         [Required]
         public override string Value { get; set; }
+
+        public virtual ICollection<Cabinet> Cabinets { get; set; }
         #region Deleted
         /*
          /// <summary>
@@ -44,7 +47,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Базовый конструктор
         /// </summary>
-        private Building() { }
+        private Building() { Cabinets = new List<Cabinet>();  }
 
         /// <summary>
         /// Конструктор содержащий название улицы и номер здания. Идентификатор здания будет получен автоматически
@@ -54,6 +57,7 @@ namespace TFOMS_Zab_Kray.Classes
         public Building(string street, byte number)
         {
             Value = $"улица {street}, дом {number.ToString()}";
+            Cabinets = new List<Cabinet>();
         }
         #endregion Constructors
     }

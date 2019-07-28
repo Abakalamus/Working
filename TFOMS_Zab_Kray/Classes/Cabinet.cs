@@ -23,45 +23,26 @@ namespace TFOMS_Zab_Kray.Classes
         [Required]
         public override byte Value { get; set; }
 
+        public int? DepartmentId { get; set; }
         /// <summary>
         /// Отдел, работающий в кабинете
-        /// </summary>
-        [ForeignKey("Otdel_id")]
+        /// </summary>       
         public Department Department { get; set; }
 
+        public int BuildingID { get; set; }
         /// <summary>
         /// Идентификатор здания, где расположен кабинет
         /// </summary>
-        public Building BuildingID { get; set; }
+        public Building Building { get; set; }
 
+        public int FloorID { get; set; }
         /// <summary>
         /// Идентификатор этажа, где расположен кабинет
         /// </summary>
-        public Floor FloorID { get; set; }
+        public Floor Floor { get; set; }
 
         #endregion Fields
 
-        #region Constructors
-        /// <summary>
-        /// Базовый конструктор
-        /// </summary>
-        private Cabinet() { }
 
-        /// <summary>
-        /// Конструктор содержащий номер кабинета. Идентификатор кабинета будет получен автоматически
-        /// </summary>
-        /// <param name="number">Номер</param>
-        /// <param name="building">Здание</param>
-        /// <param name="floor">Этаж</param>
-        public Cabinet(byte number, Building building, Floor floor)
-        {
-            Value = number;
-            BuildingID = building;
-            FloorID = floor;
-        }
-        #endregion Constructors
-
-        #region Methods
-        #endregion Methods
     }
 }

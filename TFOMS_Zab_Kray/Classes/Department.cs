@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFOMS_Zab_Kray.Classes
@@ -21,21 +22,22 @@ namespace TFOMS_Zab_Kray.Classes
         [MaxLength(80)]
         [Required]
         public override string Value { get; set; }
+
+        /// <summary>
+        /// Кабинеты отдела
+        /// </summary>
+        public virtual ICollection<Cabinet> Cabinets { get; set; }
+        /// <summary>
+        /// Сотрудники отдела
+        /// </summary>
+        public virtual ICollection<Employee> Employees { get; set; }
         #endregion Fields
 
         #region Constructors
-        /// <summary>
-        /// Базовый конструктор отдела
-        /// </summary>
-        private Department() { }
-
-        /// <summary>
-        /// Конструктор, содержищий название отдела. Идентификатор отдела будет получен автоматически
-        /// </summary>
-        /// <param name="name">Название отдела</param>
-        public Department(string name)
+        public Department()
         {
-            Value = name;
+            Cabinets = new List<Cabinet>();
+            Employees = new List<Employee>();
         }
         #endregion Constructors
     }
