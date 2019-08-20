@@ -6,7 +6,7 @@ namespace TFOMS_Zab_Kray.Classes
     /// <summary>
     /// Класс кабинетов ТФОМС
     /// </summary>
-    [Table("CABINETS")]
+    [Table("'CABINETS'")]
     public class Cabinet : BaseObject<byte>
     {
         #region Fields

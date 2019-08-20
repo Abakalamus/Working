@@ -87,7 +87,9 @@
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Floor.cs" />
+    <Compile Include="Classes\ItemObject.cs" />
     <Compile Include="Classes\Position.cs" />
+    <Compile Include="Classes\Printer.cs" />
     <Compile Include="Interfaces\IIdentified.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

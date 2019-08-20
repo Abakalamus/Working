@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFOMS_Zab_Kray.Classes
@@ -14,6 +15,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Идентификатор должности
         /// </summary>
+        [Key]
         public override int Id { get; }
 
         /// <summary>

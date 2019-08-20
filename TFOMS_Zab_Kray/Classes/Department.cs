@@ -14,6 +14,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// <summary>
         /// Идентификатор отдела
         /// </summary>
+        [Key]
         public override int Id { get; }
         /// <summary>
         /// Название отдела
