@@ -15,7 +15,8 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор этажа
         /// </summary>
         [Key]
-        public override int Id { get; }
+        [Column("Floor_Id")]
+        public override int Id { get; set; }
 
         /// <summary>
         /// Семантическое (человекопонятное) описание

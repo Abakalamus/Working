@@ -16,7 +16,8 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор должности
         /// </summary>
         [Key]
-        public override int Id { get; }
+        [Column("Position_Id")]
+        public override int Id { get; set; }
 
         /// <summary>
         /// Название должности

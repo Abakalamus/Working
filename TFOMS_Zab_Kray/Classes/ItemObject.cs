@@ -9,7 +9,7 @@
         /// <summary>
         /// Внутренний идентификатор объекта
         /// </summary>
-        public abstract override int Id { get; set; }
+        public abstract override int Id { get;}
         /// <summary>
         /// Семантическое (человекопонятное) наименование сущности объекта (фирма, модель и т.д.)
         /// </summary>

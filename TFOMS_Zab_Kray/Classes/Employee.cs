@@ -14,7 +14,8 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор работника
         /// </summary>
         [Key]
-        public override int Id { get; }
+        [Column("Employee_Id")]
+        public override int Id { get; set; }
 
         /// <summary>
         /// Инициалы работника (в виде Фамилия И.О.)

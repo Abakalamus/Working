@@ -14,6 +14,7 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор принтера
         /// </summary>
         [Key]
+        [Column("Printer_Id")]
         public override int Id { get; set; }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace TFOMS_Zab_Kray.Classes
     /// <summary>
     /// Класс кабинетов ТФОМС
     /// </summary>
-    [Table("'CABINETS'")]
+    [Table("CABINETS")]
     public class Cabinet : BaseObject<byte>
     {
         #region Fields
@@ -14,7 +14,8 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор кабинета
         /// </summary>
         [Key]
-        public override int Id { get; }
+        [Column("Cabinet_Id")]
+        public override int Id { get; set; }
 
         /// <summary>
         /// Номер кабинета

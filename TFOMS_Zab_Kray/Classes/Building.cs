@@ -15,7 +15,8 @@ namespace TFOMS_Zab_Kray.Classes
         /// Идентификатор здания
         /// </summary>
         [Key]
-        public override int Id { get; }
+        [Column("Building_Id")]
+        public override int Id { get; set; }
 
         /// <summary>
         /// Комплексное название здания, состоящее из улицы и номера дома

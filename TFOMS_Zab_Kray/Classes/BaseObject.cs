@@ -9,7 +9,7 @@
         /// <summary>
         /// Внутренний идентификатор объекта
         /// </summary>
-        public abstract int Id { get; }
+        public abstract int Id { get; set; }
         /// <summary>
         /// Семантическое (человекопонятное) наименование сущности объекта (имя, номер и т.д.)
         /// </summary>

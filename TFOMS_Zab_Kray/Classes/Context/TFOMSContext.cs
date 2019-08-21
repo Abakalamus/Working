@@ -4,18 +4,12 @@ namespace TFOMS_Zab_Kray.Classes.Context
 {
     class TFOMSContext : DbContext
     {
-        public TFOMSContext() : base("'OIODbContext'")
+        public TFOMSContext() : base("name=OIODbContext")
         { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("OIO");
-            modelBuilder.Entity<Building>().ToTable("Buildings", "OIO");
-            modelBuilder.Entity<Floor>().ToTable("Floors", "OIO");
-            modelBuilder.Entity<Department>().ToTable("Departments", "OIO");
-            modelBuilder.Entity<Cabinet>().ToTable("Cabinets", "OIO");
-            modelBuilder.Entity<Employee>().ToTable("Employees", "OIO");
-            modelBuilder.Entity<Position>().ToTable("Positions", "OIO");
         }
 
         public DbSet<Building> Buildings { get; set; }
@@ -24,5 +18,6 @@ namespace TFOMS_Zab_Kray.Classes.Context
         public DbSet<Cabinet> Cabinets { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Printer> Printers { get; set; }
     }
 }
