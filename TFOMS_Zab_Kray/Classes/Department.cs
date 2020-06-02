@@ -1,44 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TFOMS_Zab_Kray.Classes
 {
-    /// <summary>
-    /// Класс отделов ТФОМС
-    /// </summary>
-    [Table("OTDELS")]
-    public class Department : BaseObject<string>
+    public class Department
     {
-        #region Fields
-        /// <summary>
-        /// Идентификатор отдела
-        /// </summary>
-        public override int Id { get; }
-        /// <summary>
-        /// Название отдела
-        /// </summary>
-        [Column("Title")]
-        [MaxLength(80)]
-        [Required]
-        public override string Value { get; set; }
+        [Key]
+        public int ID { get; set; }
 
-        /// <summary>
-        /// Кабинеты отдела
-        /// </summary>
-        public virtual ICollection<Cabinet> Cabinets { get; set; }
-        /// <summary>
-        /// Сотрудники отдела
-        /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; }
-        #endregion Fields
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string NAME { get; set; }
 
-        #region Constructors
+        public ICollection<Cabinet> Cabinets { get; set; }
+
         public Department()
         {
             Cabinets = new List<Cabinet>();
-            Employees = new List<Employee>();
         }
-        #endregion Constructors
     }
 }

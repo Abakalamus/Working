@@ -1,48 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TFOMS_Zab_Kray.Classes
 {
-    /// <summary>
-    /// Класс кабинетов ТФОМС
-    /// </summary>
-    [Table("CABINETS")]
-    public class Cabinet : BaseObject<byte>
+    public class Cabinet
     {
-        #region Fields
-        /// <summary>
-        /// Идентификатор кабинета
-        /// </summary>
         [Key]
-        public override int Id { get; }
+        public int ID { get; set; }
 
-        /// <summary>
-        /// Номер кабинета
-        /// </summary>
-        [Column("Number")]
-        [Required]
-        public override byte Value { get; set; }
+        public byte NUMBER { get; set; }
 
-        public int? DepartmentId { get; set; }
-        /// <summary>
-        /// Отдел, работающий в кабинете
-        /// </summary>       
+        public int DepartmentId { get; set; }
         public Department Department { get; set; }
 
-        public int BuildingID { get; set; }
-        /// <summary>
-        /// Идентификатор здания, где расположен кабинет
-        /// </summary>
-        public Building Building { get; set; }
+        //Здание
 
-        public int FloorID { get; set; }
-        /// <summary>
-        /// Идентификатор этажа, где расположен кабинет
-        /// </summary>
-        public Floor Floor { get; set; }
-
-        #endregion Fields
-
-
+        //Этаж
     }
 }

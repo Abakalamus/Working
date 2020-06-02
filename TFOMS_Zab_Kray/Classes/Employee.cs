@@ -1,43 +1,51 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TFOMS_Zab_Kray.Classes
 {
-    /// <summary>
-    /// Класс сотрудников ТФОМС
-    /// </summary>
-    [Table("EMPLOYEES")]
-    public class Employee : BaseObject<string>
+    public class Employee
     {
-        #region Fields
-        /// <summary>
-        /// Идентификатор работника
-        /// </summary>
         [Key]
-        public override int Id { get; }
+        public int ID { get; set; }
 
-        /// <summary>
-        /// Инициалы работника (в виде Фамилия И.О.)
-        /// </summary>
-        [Column("FIO")]
-        public override string Value { get; set; }
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string FAM { get; set; }
 
-        public int DepartmentId { get; set; }
-        /// <summary>
-        /// Отдел, в котором работает сотрудник
-        /// </summary>       
-        public Department Department { get; set; }
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string IM { get; set; }
 
-        public int PositionId { get; set; }
-        /// <summary>
-        /// Дожность, занимаемая сотрудником
-        /// </summary>       
-        public Position Position { get; set; }
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string OT { get; set; }
 
-        /// <summary>
-        /// Рабочий телефон сотрудника
-        /// </summary>
-        public short? Phone { get; set; }
-        #endregion Fields
+        public int W { get; set; }
+
+        public DateTime DR { get; set; }
+
+        public virtual int DEPARTMENT_ID { get; set; }
+
+        [ForeignKey("DEPARTMENT_ID")]
+        public virtual Department Department { get; set; }
+
+        public ICollection<Position> Position { get; set; }
+
+        public virtual int CABINET_ID { get; set; }
+
+        [ForeignKey("CABINET_ID")]
+        public virtual Cabinet Cabinet { get; set; }
+
+        public int? PHONE_WORK { get; set; }
+
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string PHONE_MOBILE { get; set; }
+
+        public Employee()
+        {
+            Position = new List<Position>();
+        }
     }
 }

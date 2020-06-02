@@ -1,38 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TFOMS_Zab_Kray.Classes
 {
-    /// <summary>
-    /// Класс должностей ТФОМС
-    /// </summary>
-    [Table("POSITION")]
-    public class Position : BaseObject<string>
+    public class Position
     {
-        #region Fields
-        /// <summary>
-        /// Идентификатор должности
-        /// </summary>
-        public override int Id { get; }
+        [Key]
+        public int ID { get; set; }
 
-        /// <summary>
-        /// Название должности
-        /// </summary>
-        [Column("Name")]
-        public override string Value { get; set; }
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string NAME { get; set; }
 
-        /// <summary>
-        /// Сотрудники
-        /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; }
-        #endregion Fields
+        public ICollection<Employee> Employees { get; set; }
 
-        #region Constructors
         public Position()
         {
             Employees = new List<Employee>();
         }
-        #endregion Constructors
     }
 }
