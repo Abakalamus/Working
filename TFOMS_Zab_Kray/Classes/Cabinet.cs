@@ -11,15 +11,17 @@ namespace TFOMS_Zab_Kray.Classes
     public class Cabinet
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        public byte NUMBER { get; set; }
+        public byte Number { get; set; }
+
+        public int BuildingId { get; set; }
+        public Building Building { get; set; }
+
+        public int FloorId { get; set; }
+        public Floor Floor { get; set; }
 
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
-
-        //Здание
-
-        //Этаж
     }
 }

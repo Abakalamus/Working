@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace TFOMS_Zab_Kray.Classes
 {
-    public class Position
+    public class Building
     {
         [Key]
         public int Id { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string Name { get; set; }
+        public string Street { get; set; }
 
-        public ICollection<Employee> Employees { get; set; }
-
-        public Position()
-        {
-            Employees = new List<Employee>();
-        }
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string Number { get; set; }
     }
 }

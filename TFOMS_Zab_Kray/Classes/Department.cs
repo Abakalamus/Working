@@ -11,10 +11,10 @@ namespace TFOMS_Zab_Kray.Classes
     public class Department
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string NAME { get; set; }
+        public string Name { get; set; }
 
         public ICollection<Cabinet> Cabinets { get; set; }
 

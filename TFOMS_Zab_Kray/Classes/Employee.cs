@@ -11,37 +11,36 @@ namespace TFOMS_Zab_Kray.Classes
     public class Employee
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string FAM { get; set; }
+        public string Fam { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string IM { get; set; }
+        public string Im { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string OT { get; set; }
+        public string Ot { get; set; }
 
         public int W { get; set; }
 
         public DateTime DR { get; set; }
 
-        public virtual int DEPARTMENT_ID { get; set; }
-
-        [ForeignKey("DEPARTMENT_ID")]
-        public virtual Department Department { get; set; }
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
 
         public ICollection<Position> Position { get; set; }
 
-        public virtual int CABINET_ID { get; set; }
+        public int CabinetId { get; set; }
+        public Cabinet Cabinet { get; set; }
 
-        [ForeignKey("CABINET_ID")]
-        public virtual Cabinet Cabinet { get; set; }
-
-        public int? PHONE_WORK { get; set; }
+        public int? Phone_Work { get; set; }
 
         [Column(TypeName = "varchar2"), StringLength(40)]
-        public string PHONE_MOBILE { get; set; }
+        public string Phone_Mobile { get; set; }
+
+        [Column(TypeName = "varchar2"), StringLength(40)]
+        public string Email { get; set; }
 
         public Employee()
         {

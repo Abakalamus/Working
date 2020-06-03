@@ -1,13 +1,12 @@
-﻿<Window x:Class="TFOMS_Zab_Kray.MainWindow"
+﻿<Window x:Class="TFOMS_Zab_Kray.Forms.AddFloor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TFOMS_Zab_Kray"
+        xmlns:local="clr-namespace:TFOMS_Zab_Kray.Forms"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="AddFloor" Height="250" Width="400">
     <Grid>
-        <Button x:Name="button" Content="Test" HorizontalAlignment="Left" Margin="217,156,0,0" VerticalAlignment="Top" Width="75"/>
-
+        
     </Grid>
 </Window>
